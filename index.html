@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macedo Palestras & Consultoria | Eficiência Comercial e TI</title>
+    <title>Macedo Palestras & Consultoria | Eficiência Comercial e Governança de TI</title>
     <style>
         * {
             margin: 0;
@@ -18,34 +18,39 @@
             line-height: 1.6;
         }
 
+        /* Cabeçalho Corporativo */
         header {
-            background-color: rgba(11, 15, 25, 0.8);
+            background-color: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(20px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: -0.5px;
             color: #ffffff;
         }
 
-        .logo span {
-            color: #0071e3;
+        .brand span {
+            color: #86868b;
+            font-weight: 400;
         }
 
         nav a {
@@ -53,120 +58,189 @@
             text-decoration: none;
             margin-left: 25px;
             font-size: 0.9rem;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #f5f5f7;
+            color: #ffffff;
         }
 
+        /* Seção Hero - Impacto Máximo */
         .hero {
-            max-width: 800px;
-            margin: 160px auto 100px auto;
+            max-width: 1000px;
+            margin: 180px auto 100px auto;
             text-align: center;
             padding: 0 20px;
         }
 
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(0, 113, 227, 0.15);
+            color: #0071e3;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3.8rem;
             font-weight: 700;
-            letter-spacing: -1.5px;
-            line-height: 1.15;
+            letter-spacing: -2px;
+            line-height: 1.1;
             margin-bottom: 24px;
             color: #ffffff;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: #86868b;
             margin-bottom: 40px;
-            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
             display: inline-block;
             background-color: #0071e3;
             color: #ffffff;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 980px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            font-size: 1rem;
-            transition: background-color 0.3s;
+            font-size: 1.05rem;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.4);
         }
 
         .cta-button:hover {
             background-color: #0077ed;
+            transform: translateY(-2px);
         }
 
-        .services {
-            max-width: 1100px;
+        /* Seção de Serviços Estruturada */
+        .services-section {
+            background-color: #121724;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 90px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #86868b;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .card {
-            background-color: #161c2d;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 18px;
-            padding: 40px;
-            transition: transform 0.3s, border-color 0.3s;
+            background-color: #1c2333;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 45px;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(0, 113, 227, 0.3);
+            border-color: rgba(0, 113, 227, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .card .icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
         }
 
         .card h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 16px;
             color: #ffffff;
+            letter-spacing: -0.5px;
         }
 
         .card p {
-            color: #86868b;
-            font-size: 0.95rem;
+            color: #a1a1a6;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
+        /* Seção de Contato / Fechamento */
         .contact {
-            background-color: #161c2d;
             text-align: center;
-            padding: 80px 20px;
-            margin-top: 60px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 100px 20px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 16px;
             color: #ffffff;
+            letter-spacing: -1px;
         }
 
         .contact p {
             color: #86868b;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            background: #121724;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 16px;
             margin-bottom: 30px;
         }
 
         .contact-info {
             font-size: 1.1rem;
-            margin: 10px 0;
-            color: #f5f5f7;
+            margin: 12px 0;
+            color: #ffffff;
+            font-weight: 500;
         }
 
         footer {
             text-align: center;
             padding: 40px 20px;
             color: #6e6e73;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .services { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero p { font-size: 1.1rem; }
+            .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -174,44 +248,62 @@
 
     <header>
         <div class="header-container">
-            <div class="logo">MACEDO <span>PALESTRAS & CONSULTORIA</span></div>
+            <div class="brand">
+                MACEDO <span>| PALESTRAS & CONSULTORIA</span>
+            </div>
             <nav>
-                <a href="#servicos">Serviços</a>
+                <a href="#solucoes">Soluções</a>
                 <a href="#contato">Contato</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Transformando processos comerciais em resultados previsíveis.</h1>
-        <p>Projetos sob demanda de estruturação de CRM, presença digital corporativa e workshops estratégicos para o C-Level.</p>
-        <a href="https://wa.me/5511971768080" class="cta-button" target="_blank">Fale Conosco no WhatsApp</a>
+        <span class="tagline">Eficiência Comercial & Governança</span>
+        <h1>Transformando dados complexos em resultados previsíveis.</h1>
+        <p>Desenvolvimento e execução de projetos sob demanda para estruturação de CRM, presença digital estratégica e workshops de alto impacto para o C-Level.</p>
+        <a href="https://wa.me/5511971768080" class="cta-button" target="_blank">Iniciar Projeto com Liquidez</a>
     </section>
 
-    <section class="services" id="servicos">
-        <div class="card">
-            <h3>⚙️ Consultoria & CRM</h3>
-            <p>Implementação, desenho de processos, automação de pipeline e relatórios gerenciais sob medida no Bitrix24. Chega de perder leads por desorganização.</p>
+    <section class="services-section" id="solucoes">
+        <div class="section-title">
+            <h2>Pilares de Atuação</h2>
+            <p>Soluções desenhadas para acelerar vendas e consolidar a soberania operacional da sua empresa.</p>
         </div>
-        <div class="card">
-            <h3>🌐 Presença Digital B2B</h3>
-            <p>Desenvolvimento de Landing Pages de alta conversão, sites institucionais ágeis e materiais visuais de alto impacto no padrão corporativo sênior.</p>
-        </div>
-        <div class="card">
-            <h3>📢 Palestras & Workshops</h3>
-            <p>Treinamentos dinâmicos focados em inovação, Cibersegurança, Computação em Nuvem, inteligência de Dados e IA aplicados ao ecossistema de negócios.</p>
+
+        <div class="services-grid">
+            <div class="card">
+                <span class="icon">⚙️</span>
+                <h3>Consultoria & CRM (Bitrix24)</h3>
+                <p>Mapeamento de processos, automação completa do pipeline de vendas e blindagem do fluxo de leads. Inteligência e governança de dados transformados em relatórios gerenciais analíticos e tomadas de decisão cirúrgicas.</p>
+            </div>
+            <div class="card">
+                <span class="icon">🌐</span>
+                <h3>Presença Digital B2B</h3>
+                <p>Criação de arquiteturas web de alto padrão, landing pages focadas em conversão corporativa e desenvolvimento de materiais de marketing B2B sóbrios. Alinhamento visual milimétrico com o nível de exigência de executivos seniores.</p>
+            </div>
+            <div class="card">
+                <span class="icon">📢</span>
+                <h3>Palestras & Workshops</h3>
+                <p>Imersões e conteúdos dinâmicos para lideranças focados no impacto real da inovação. Tradução prática de conceitos de Cibersegurança, Computação em Nuvem, Engenharia de Dados e Inteligência Artificial Aplicada.</p>
+            </div>
         </div>
     </section>
 
     <section class="contact" id="contato">
-        <h2>Vamos fechar o seu próximo projeto?</h2>
-        <p>Entre em contato direto para alinhar um briefing e receber uma proposta comercial dedicada.</p>
-        <div class="contact-info">✉️ macedopalestras@gmail.com</div>
-        <div class="contact-info">📞 (11) 9 7176-8080</div>
+        <h2>Vamos desenhar o escopo?</h2>
+        <p>Entre em contato direto para estruturar um briefing dedicado e receber uma proposta comercial alinhada aos seus objetivos.</p>
+        
+        <div class="contact-details">
+            <div class="contact-info">✉️ macedopalestras@gmail.com</div>
+            <div class="contact-info">📞 (11) 9 7176-8080</div>
+        </div>
+
+        <a href="https://wa.me/5511971768080" class="cta-button" target="_blank" style="background-color: transparent; border: 2px solid #0071e3; color: #0071e3; box-shadow: none;">Falar com Especialista</a>
     </section>
 
     <footer>
-        &copy; 2026 Macedo Palestras & Consultoria. Todos os direitos reservados. Atuação sob demanda e projetos independentes.
+        &copy; 2026 Macedo Palestras & Consultoria. Todos os direitos reservados. Atuação executiva sob demanda e projetos corporativos independentes.
     </footer>
 
 </body>
