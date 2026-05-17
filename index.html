@@ -126,6 +126,40 @@
             transform: translateY(-2px);
         }
 
+        /* Seção Metodologia Tripla (Ouvir, Pensar, Agir) */
+        .method-section {
+            max-width: 1200px;
+            margin: 0 auto 90px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .method-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .method-box .num {
+            font-size: 0.85rem;
+            color: #0071e3;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .method-box h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
         /* Seção de Serviços Estruturada */
         .services-section {
             background-color: #121724;
@@ -174,10 +208,17 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .card .icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: inline-block;
+        .card .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 113, 227, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: #0071e3;
+            font-size: 1.4rem;
         }
 
         .card h3 {
@@ -191,120 +232,19 @@
             color: #a1a1a6;
             font-size: 1rem;
             line-height: 1.6;
+            margin-bottom: 15px;
         }
 
-        /* Seção de Contato / Fechamento */
-        .contact {
-            text-align: center;
-            padding: 100px 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-            color: #ffffff;
-            letter-spacing: -1px;
-        }
-
-        .contact p {
-            color: #86868b;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-        }
-
-        .contact-details {
-            background: #121724;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-        }
-
-        .contact-info {
-            font-size: 1.1rem;
-            margin: 12px 0;
-            color: #ffffff;
-            font-weight: 500;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #6e6e73;
+        .card .frameworks {
             font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #86868b;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 15px;
+            margin-top: 15px;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.6rem; }
-            .hero p { font-size: 1.1rem; }
-            .services-grid { grid-template-columns: 1fr; }
+        .card .frameworks strong {
+            color: #ffffff;
         }
-    </style>
-</head>
-<body>
 
-    <header>
-        <div class="header-container">
-            <div class="brand">
-                MACEDO <span>| PALESTRAS & CONSULTORIA</span>
-            </div>
-            <nav>
-                <a href="#solucoes">Soluções</a>
-                <a href="#contato">Contato</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <span class="tagline">Eficiência Comercial & Governança</span>
-        <h1>Transformando dados complexos em resultados previsíveis.</h1>
-        <p>Desenvolvimento e execução de projetos sob demanda para estruturação de CRM, presença digital estratégica e workshops de alto impacto para o C-Level.</p>
-        <a href="https://wa.me/5511971768080" class="cta-button" target="_blank">Iniciar Projeto com Liquidez</a>
-    </section>
-
-    <section class="services-section" id="solucoes">
-        <div class="section-title">
-            <h2>Pilares de Atuação</h2>
-            <p>Soluções desenhadas para acelerar vendas e consolidar a soberania operacional da sua empresa.</p>
-        </div>
-
-        <div class="services-grid">
-            <div class="card">
-                <span class="icon">⚙️</span>
-                <h3>Consultoria & CRM (Bitrix24)</h3>
-                <p>Mapeamento de processos, automação completa do pipeline de vendas e blindagem do fluxo de leads. Inteligência e governança de dados transformados em relatórios gerenciais analíticos e tomadas de decisão cirúrgicas.</p>
-            </div>
-            <div class="card">
-                <span class="icon">🌐</span>
-                <h3>Presença Digital B2B</h3>
-                <p>Criação de arquiteturas web de alto padrão, landing pages focadas em conversão corporativa e desenvolvimento de materiais de marketing B2B sóbrios. Alinhamento visual milimétrico com o nível de exigência de executivos seniores.</p>
-            </div>
-            <div class="card">
-                <span class="icon">📢</span>
-                <h3>Palestras & Workshops</h3>
-                <p>Imersões e conteúdos dinâmicos para lideranças focados no impacto real da inovação. Tradução prática de conceitos de Cibersegurança, Computação em Nuvem, Engenharia de Dados e Inteligência Artificial Aplicada.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contato">
-        <h2>Vamos desenhar o escopo?</h2>
-        <p>Entre em contato direto para estruturar um briefing dedicado e receber uma proposta comercial alinhada aos seus objetivos.</p>
-        
-        <div class="contact-details">
-            <div class="contact-info">✉️ macedopalestras@gmail.com</div>
-            <div class="contact-info">📞 (11) 9 7176-8080</div>
-        </div>
-
-        <a href="https://wa.me/5511971768080" class="cta-button" target="_blank" style="background-color: transparent; border: 2px solid #0071e3; color: #0071e3; box-shadow: none;">Falar com Especialista</a>
-    </section>
-
-    <footer>
-        &copy; 2026 Macedo Palestras & Consultoria. Todos os direitos reservados. Atuação executiva sob demanda e projetos corporativos independentes.
-    </footer>
-
-</body>
-</html>
+        /* Seção Biográfica Executiva
