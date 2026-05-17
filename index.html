@@ -35,10 +35,7 @@
             --cta-shadow: rgba(0, 113, 227, 0.4);
             --cta-hover-shadow: rgba(0, 113, 227, 0.8);
             --method-box-bg: rgba(255, 255, 255, 0.02);
-            --pilar-neon: #ff6d00;
-            --pilar-framework-title: #ffffff; /* Texto branco fosco para o título do Frameworks */
             --glow-filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.8));
-            --pilar-glow: drop-shadow(0 0 10px rgba(255, 109, 0, 0.8));
             --label-toggle: "☀️ MODO LUZ";
         }
 
@@ -59,10 +56,7 @@
             --cta-shadow: rgba(0, 113, 227, 0.15);
             --cta-hover-shadow: rgba(0, 113, 227, 0.4);
             --method-box-bg: rgba(0, 0, 0, 0.02);
-            --pilar-neon: #ff3d00;
-            --pilar-framework-title: #1d1d1f; /* Texto preto fosco para o título do Frameworks no modo claro */
             --glow-filter: drop-shadow(0 0 5px rgba(0, 195, 219, 0.6));
-            --pilar-glow: drop-shadow(0 0 5px rgba(255, 61, 0, 0.6));
             --label-toggle: "🌙 MODO NOITE";
         }
 
@@ -72,13 +66,11 @@
             line-height: 1.6;
         }
 
-        /* Títulos com efeito Neon */
         h1, h2, h3, h4 {
             color: var(--text-main);
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
-        /* Efeito Neon Blue para o Cabeçalho */
         header {
             background-color: var(--header-bg);
             backdrop-filter: blur(20px);
@@ -144,7 +136,6 @@
             text-shadow: 0 0 5px var(--neon-blue);
         }
 
-        /* Configuração do Botão Abajur */
         .toggle-theme::after {
             content: var(--label-toggle);
         }
@@ -153,7 +144,6 @@
             scroll-margin-top: 80px;
         }
 
-        /* Seção Hero com efeito Neon */
         .hero {
             max-width: 1000px;
             margin: 180px auto 100px auto;
@@ -218,7 +208,6 @@
             box-shadow: 0 4px 15px var(--cta-hover-shadow);
         }
 
-        /* Metodologia Tripla com efeito Neon */
         .method-section {
             max-width: 1200px;
             margin: 0 auto 90px auto;
@@ -253,7 +242,6 @@
             text-shadow: 0 0 10px var(--neon-blue);
         }
 
-        /* Seção de Serviços Estruturada (Grid 2x2 com efeitos de Grid e Neon) */
         .services-section {
             background-color: var(--section-bg);
             border-top: 2px solid var(--neon-blue);
@@ -297,7 +285,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s, filter 0.3s;
         }
 
         .card:hover {
@@ -348,7 +335,6 @@
             color: var(--text-main);
         }
 
-        /* Seção Biográfica Executiva com efeito Neon */
         .bio-section {
             padding: 90px 20px;
             max-width: 1000px;
@@ -404,7 +390,6 @@
             line-height: 1.4;
         }
 
-        /* Seção de Chancelas Corporativas com efeito Neon */
         .badges-section {
             background: var(--section-bg);
             padding: 60px 20px;
@@ -433,7 +418,6 @@
             text-shadow: 0 0 5px var(--neon-blue);
         }
 
-        /* Seção de Contato/Fechamento com efeito Neon */
         .contact {
             text-align: center;
             padding: 100px 20px;
@@ -544,14 +528,14 @@
                 </div>
             </div>
 
-            <div class="card" style="border-color: var(--pilar-neon); box-shadow: 0 0 15px rgba(255, 109, 0, 0.4); filter: var(--pilar-glow);">
+            <div class="card">
                 <div>
-                    <div class="icon-wrapper" style="color: var(--pilar-neon); text-shadow: 0 0 10px var(--pilar-neon); background: rgba(255, 109, 0, 0.1);">⚖️</div>
-                    <h3 style="color: var(--pilar-neon); text-shadow: 0 0 10px var(--pilar-neon);">Segurança Contratual & Compliance</h3>
+                    <div class="icon-wrapper">⚖️</div>
+                    <h3>Segurança Contratual & Compliance</h3>
                     <p>Estruturação e elaboração técnica de propostas comerciais complexas, contratos corporativos, acordos correlatos e emissão de pareceres de viabilidade. Gestão proativa de renovações para mitigar riscos contratuais.</p>
                 </div>
-                <div class="frameworks" style="border-top: 2px solid var(--pilar-neon);">
-                    <span style="color: var(--pilar-framework-title); font-weight: bold;">Foco: <strong>Mitigação de Riscos & Liquidez B2B</strong></span>
+                <div class="frameworks">
+                    Foco: <strong>Mitigação de Riscos & Liquidez B2B</strong>
                 </div>
             </div>
 
