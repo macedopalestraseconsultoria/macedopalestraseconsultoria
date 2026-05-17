@@ -10,23 +10,85 @@
             padding: 0;
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, text-shadow 0.4s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- VARIÁVEIS DE COR TRON (O SEGREDO DO ABAJUR ELÉTRICO) --- */
+        :root {
+            /* MODO NOTURNO (TRON CLÁSSICO - AZUL NEON) - PADRÃO */
+            --bg-color: #0b0f19;
+            --header-bg: rgba(11, 15, 25, 0.85);
+            --card-bg: #1c2333;
+            --section-bg: #121724;
+            --text-main: #f5f5f7;
+            --text-secondary: #86868b;
+            --text-paragraph: #a1a1a6;
+            --neon-blue: #00e5ff;
+            --badge-bg: rgba(0, 229, 255, 0.05);
+            --border-color: rgba(0, 229, 255, 0.2);
+            --border-hover: rgba(0, 229, 255, 0.8);
+            --cta-bg: #0071e3;
+            --cta-shadow: rgba(0, 113, 227, 0.4);
+            --cta-hover-shadow: rgba(0, 113, 227, 0.8);
+            --method-box-bg: rgba(255, 255, 255, 0.02);
+            --pilar-neon: #ff6d00;
+            --pilar-framework-title: #ffffff; /* Texto branco fosco para o título do Frameworks */
+            --glow-filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.8));
+            --pilar-glow: drop-shadow(0 0 10px rgba(255, 109, 0, 0.8));
+            --label-toggle: "☀️ MODO LUZ";
+        }
+
+        body.light-mode {
+            /* MODO LUZ (TRON ELÉTRICO - BRANCO ENERGIZADO) */
+            --bg-color: #fbfbfd;
+            --header-bg: rgba(251, 251, 253, 0.85);
+            --card-bg: #ffffff;
+            --section-bg: #f5f5f7;
+            --text-main: #1d1d1f;
+            --text-secondary: #515154;
+            --text-paragraph: #6e6e73;
+            --neon-blue: #00c3db;
+            --badge-bg: rgba(0, 113, 227, 0.1);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 113, 227, 0.6);
+            --cta-bg: #0071e3;
+            --cta-shadow: rgba(0, 113, 227, 0.15);
+            --cta-hover-shadow: rgba(0, 113, 227, 0.4);
+            --method-box-bg: rgba(0, 0, 0, 0.02);
+            --pilar-neon: #ff3d00;
+            --pilar-framework-title: #1d1d1f; /* Texto preto fosco para o título do Frameworks no modo claro */
+            --glow-filter: drop-shadow(0 0 5px rgba(0, 195, 219, 0.6));
+            --pilar-glow: drop-shadow(0 0 5px rgba(255, 61, 0, 0.6));
+            --label-toggle: "🌙 MODO NOITE";
         }
 
         body {
-            background-color: #0b0f19;
-            color: #f5f5f7;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
-        /* Cabeçalho Corporativo */
+        /* Títulos com efeito Neon */
+        h1, h2, h3, h4 {
+            color: var(--text-main);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Efeito Neon Blue para o Cabeçalho */
         header {
-            background-color: rgba(11, 15, 25, 0.85);
+            background-color: var(--header-bg);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
         }
 
         .header-container {
@@ -45,28 +107,53 @@
             font-weight: 700;
             font-size: 1.1rem;
             letter-spacing: -0.5px;
-            color: #ffffff;
+            color: var(--text-main);
         }
 
         .brand span {
-            color: #86868b;
+            color: var(--neon-blue);
             font-weight: 400;
+            text-shadow: 0 0 5px var(--neon-blue);
         }
 
-        nav a {
-            color: #86868b;
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a, .toggle-theme {
+            color: var(--text-secondary);
             text-decoration: none;
             margin-left: 25px;
             font-size: 0.9rem;
             font-weight: 500;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #ffffff;
+        nav a:hover, .toggle-theme:hover {
+            color: var(--text-main);
         }
 
-        /* Seção Hero - Impacto Máximo */
+        .linkedin-link {
+            color: var(--neon-blue) !important;
+            font-weight: 600;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        /* Configuração do Botão Abajur */
+        .toggle-theme::after {
+            content: var(--label-toggle);
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        /* Seção Hero com efeito Neon */
         .hero {
             max-width: 1000px;
             margin: 180px auto 100px auto;
@@ -77,7 +164,7 @@
         .hero .tagline {
             display: inline-block;
             background: rgba(0, 113, 227, 0.15);
-            color: #0071e3;
+            color: var(--neon-blue);
             padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -85,6 +172,7 @@
             margin-bottom: 24px;
             letter-spacing: 1px;
             text-transform: uppercase;
+            text-shadow: 0 0 5px var(--neon-blue);
         }
 
         .hero h1 {
@@ -93,7 +181,10 @@
             letter-spacing: -2px;
             line-height: 1.1;
             margin-bottom: 24px;
-            color: #ffffff;
+            color: var(--text-main);
+        }
+
+        body:not(.light-mode) .hero h1 {
             background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -101,7 +192,7 @@
 
         .hero p {
             font-size: 1.4rem;
-            color: #86868b;
+            color: var(--text-secondary);
             margin-bottom: 40px;
             max-width: 700px;
             margin-left: auto;
@@ -110,23 +201,24 @@
 
         .cta-button {
             display: inline-block;
-            background-color: #0071e3;
+            background-color: var(--cta-bg);
             color: #ffffff;
             padding: 14px 32px;
             border-radius: 980px;
             font-weight: 600;
             text-decoration: none;
             font-size: 1.05rem;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.4);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px var(--cta-shadow);
         }
 
         .cta-button:hover {
             background-color: #0077ed;
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--cta-hover-shadow);
         }
 
-        /* Seção Metodologia Tripla */
+        /* Metodologia Tripla com efeito Neon */
         .method-section {
             max-width: 1200px;
             margin: 0 auto 90px auto;
@@ -137,8 +229,8 @@
         }
 
         .method-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: var(--method-box-bg);
+            border: 2px solid var(--border-color);
             padding: 30px;
             border-radius: 16px;
             text-align: center;
@@ -156,16 +248,18 @@
 
         .method-box h3 {
             font-size: 1.4rem;
-            color: #ffffff;
+            color: var(--neon-blue);
             letter-spacing: -0.5px;
+            text-shadow: 0 0 10px var(--neon-blue);
         }
 
-        /* Seção de Serviços Estruturada */
+        /* Seção de Serviços Estruturada (Grid 2x2 com efeitos de Grid e Neon) */
         .services-section {
-            background-color: #121724;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: var(--section-bg);
+            border-top: 2px solid var(--neon-blue);
+            border-bottom: 2px solid var(--neon-blue);
             padding: 90px 20px;
+            box-shadow: 0 0 20px var(--neon-blue);
         }
 
         .section-title {
@@ -176,13 +270,14 @@
 
         .section-title h2 {
             font-size: 2.2rem;
-            color: #ffffff;
+            color: var(--text-main);
             letter-spacing: -1px;
             margin-bottom: 12px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
         }
 
         .section-title p {
-            color: #86868b;
+            color: var(--text-secondary);
             font-size: 1.1rem;
         }
 
@@ -190,46 +285,52 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 30px;
         }
 
         .card {
-            background-color: #1c2333;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
             border-radius: 20px;
             padding: 45px;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s, filter 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(0, 113, 227, 0.4);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: var(--border-hover);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
+            filter: var(--glow-filter);
         }
 
         .card .icon-wrapper {
             width: 48px;
             height: 48px;
-            background: rgba(0, 113, 227, 0.1);
+            background: rgba(0, 229, 255, 0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 24px;
-            color: #0071e3;
+            color: var(--neon-blue);
             font-size: 1.4rem;
+            text-shadow: 0 0 10px var(--neon-blue);
         }
 
         .card h3 {
             font-size: 1.5rem;
             margin-bottom: 16px;
-            color: #ffffff;
+            color: var(--text-main);
             letter-spacing: -0.5px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .card p {
-            color: #a1a1a6;
+            color: var(--text-paragraph);
             font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 15px;
@@ -237,17 +338,17 @@
 
         .card .frameworks {
             font-size: 0.85rem;
-            color: #86868b;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            border-top: 2px solid var(--neon-blue);
             padding-top: 15px;
             margin-top: 15px;
         }
 
         .card .frameworks strong {
-            color: #ffffff;
+            color: var(--text-main);
         }
 
-        /* Seção Biográfica Executiva */
+        /* Seção Biográfica Executiva com efeito Neon */
         .bio-section {
             padding: 90px 20px;
             max-width: 1000px;
@@ -255,23 +356,29 @@
         }
 
         .bio-container {
-            background: linear-gradient(135deg, #121724 0%, #1c2333 100%);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, var(--section-bg) 0%, var(--card-bg) 100%);
+            border: 2px solid var(--border-color);
             padding: 50px;
             border-radius: 24px;
         }
 
         .bio-content h2 {
             font-size: 2.2rem;
-            color: #ffffff;
+            color: var(--text-main);
             letter-spacing: -1px;
             margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
         }
 
         .bio-content p {
-            color: #a1a1a6;
+            color: var(--text-paragraph);
             font-size: 1.1rem;
             margin-bottom: 20px;
+        }
+
+        .bio-content strong {
+            color: var(--text-main);
+            font-weight: 600;
         }
 
         .highlights-grid {
@@ -279,29 +386,30 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 2px solid var(--neon-blue);
             padding-top: 30px;
         }
 
         .stat-item h4 {
             font-size: 1.8rem;
-            color: #0071e3;
+            color: var(--neon-blue);
             font-weight: 700;
             margin-bottom: 5px;
+            text-shadow: 0 0 10px var(--neon-blue);
         }
 
         .stat-item p {
             font-size: 0.9rem;
-            color: #86868b;
+            color: var(--text-secondary);
             line-height: 1.4;
         }
 
-        /* Seção de Chancelas / Certificações */
+        /* Seção de Chancelas Corporativas com efeito Neon */
         .badges-section {
-            background: #121724;
+            background: var(--section-bg);
             padding: 60px 20px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 2px solid var(--neon-blue);
         }
 
         .badges-container {
@@ -314,17 +422,18 @@
         }
 
         .badge-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--badge-bg);
+            border: 2px solid var(--border-color);
             padding: 12px 24px;
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #a1a1a6;
+            color: var(--neon-blue);
             letter-spacing: 0.5px;
+            text-shadow: 0 0 5px var(--neon-blue);
         }
 
-        /* Seção de Contato / Fechamento */
+        /* Seção de Contato/Fechamento com efeito Neon */
         .contact {
             text-align: center;
             padding: 100px 20px;
@@ -335,19 +444,20 @@
         .contact h2 {
             font-size: 2.5rem;
             margin-bottom: 16px;
-            color: #ffffff;
+            color: var(--text-main);
             letter-spacing: -1px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
         }
 
         .contact p {
-            color: #86868b;
+            color: var(--text-secondary);
             font-size: 1.1rem;
             margin-bottom: 40px;
         }
 
         .contact-details {
-            background: #121724;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--section-bg);
+            border: 2px solid var(--border-color);
             padding: 30px;
             border-radius: 16px;
             margin-bottom: 30px;
@@ -356,16 +466,16 @@
         .contact-info {
             font-size: 1.1rem;
             margin: 12px 0;
-            color: #ffffff;
+            color: var(--text-main);
             font-weight: 500;
         }
 
         footer {
             text-align: center;
             padding: 40px 20px;
-            color: #6e6e73;
+            color: var(--text-secondary);
             font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--border-color);
         }
 
         @media (max-width: 768px) {
@@ -388,14 +498,16 @@
                 <a href="#solucoes">Soluções</a>
                 <a href="#sobre">Trajetória</a>
                 <a href="#contato">Contato</a>
+                <a href="https://www.linkedin.com/in/marcelo-macedo-de-oliveira/" target="_blank" class="linkedin-link">LinkedIn ↗</a>
+                <button class="toggle-theme" id="themeToggle"></button>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <span class="tagline">Eficiência Comercial & Governança</span>
+        <span class="tagline">Eficiência Comercial, Contratual & Governança</span>
         <h1>Transformando dados complexos em resultados previsíveis.</h1>
-        <p>Desenvolvimento e execução de projetos sob demanda para estruturação de CRM, presença digital estratégica e workshops de alto impacto para o C-Level.</p>
+        <p>Desenvolvimento e execução de projetos sob demanda para estruturação de CRM, governança jurídica de propostas e workshops de alto impacto para lideranças.</p>
         <a href="https://wa.me/5511971768080" class="cta-button" target="_blank">Iniciar Projeto com Liquidez</a>
     </section>
 
@@ -417,32 +529,51 @@
     <section class="services-section" id="solucoes">
         <div class="section-title">
             <h2>Pilares de Atuação</h2>
-            <p>Soluções desenhadas para acelerar vendas e consolidar a soberania operacional da sua empresa.</p>
+            <p>Soluções estruturadas para acelerar vendas, mitigar riscos operacionais e consolidar a governança corporativa.</p>
         </div>
 
         <div class="services-grid">
             <div class="card">
-                <div class="icon-wrapper">⚙️</div>
-                <h3>Consultoria & CRM (Bitrix24)</h3>
-                <p>Mapeamento de processos, automação completa do pipeline de vendas e blindagem do fluxo de leads. Inteligência e governança de dados transformados em relatórios gerenciais analíticos e tomadas de decisão cirúrgicas.</p>
+                <div>
+                    <div class="icon-wrapper">⚙️</div>
+                    <h3>Consultoria & CRM (Bitrix24)</h3>
+                    <p>Mapeamento de processos, automação completa do pipeline de vendas e blindagem do fluxo de leads. Inteligência e governança de dados transformados em relatórios gerenciais analíticos e tomadas de decisão cirúrgicas.</p>
+                </div>
                 <div class="frameworks">
-                    Metodologias: <strong>SPIN Selling | BANT | MEDDIC</strong> [cite: 13, 52]
+                    Metodologias: <strong>SPIN Selling | BANT | MEDDIC</strong>
                 </div>
             </div>
-            <div class="card">
-                <div class="icon-wrapper">🌐</div>
-                <h3>Presença Digital B2B</h3>
-                <p>Criação de arquiteturas web de alto padrão, landing pages focadas em conversão corporativa e desenvolvimento de materiais de marketing B2B sóbrios. Alinhamento visual milimétrico com o nível de exigência de executivos seniores.</p>
-                <div class="frameworks">
-                    Infraestrutura: <strong>Soberania Digital & IA Privada</strong> [cite: 10]
+
+            <div class="card" style="border-color: var(--pilar-neon); box-shadow: 0 0 15px rgba(255, 109, 0, 0.4); filter: var(--pilar-glow);">
+                <div>
+                    <div class="icon-wrapper" style="color: var(--pilar-neon); text-shadow: 0 0 10px var(--pilar-neon); background: rgba(255, 109, 0, 0.1);">⚖️</div>
+                    <h3 style="color: var(--pilar-neon); text-shadow: 0 0 10px var(--pilar-neon);">Segurança Contratual & Compliance</h3>
+                    <p>Estruturação e elaboração técnica de propostas comerciais complexas, contratos corporativos, acordos correlatos e emissão de pareceres de viabilidade. Gestão proativa de renovações para mitigar riscos contratuais.</p>
+                </div>
+                <div class="frameworks" style="border-top: 2px solid var(--pilar-neon);">
+                    <span style="color: var(--pilar-framework-title); font-weight: bold;">Foco: <strong>Mitigação de Riscos & Liquidez B2B</strong></span>
                 </div>
             </div>
+
             <div class="card">
-                <div class="icon-wrapper">📢</div>
-                <h3>Palestras & Workshops</h3>
-                <p>Imersões e conteúdos dinâmicos para lideranças focados no impacto real da inovação. Tradução prática de conceitos de Cibersegurança, Computação em Nuvem, Engenharia de Dados e Inteligência Artificial Aplicada.</p>
+                <div>
+                    <div class="icon-wrapper">🌐</div>
+                    <h3>Presença Digital B2B</h3>
+                    <p>Criação de arquiteturas web de alto padrão, landing pages focadas em conversão corporativa e desenvolvimento de materiais de marketing B2B sóbrios. Alinhamento visual milimétrico com o nível de exigência de executivos seniores.</p>
+                </div>
                 <div class="frameworks">
-                    Foco: <strong>C-Level & Treinamentos Dinâmicos</strong> [cite: 23, 46]
+                    Infraestrutura: <strong>Soberania Digital & IA Privada</strong>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="icon-wrapper">📢</div>
+                    <h3>Palestras & Workshops</h3>
+                    <p>Imersões e conteúdos dinâmicos para lideranças focados no impacto real da inovação. Tradução prática de conceitos de Cibersegurança, Computação em Nuvem, Engenharia de Dados e Inteligência Artificial Aplicada.</p>
+                </div>
+                <div class="frameworks">
+                    Foco: <strong>C-Level & Treinamentos Dinâmicos</strong>
                 </div>
             </div>
         </div>
@@ -452,9 +583,9 @@
         <div class="bio-container">
             <div class="bio-content">
                 <h2>Liderança e Visão de Mercado</h2>
-                <p>Boas-vindas ao meu perfil! Minha trajetória passa por <strong>mais de 35 anos na indústria, comércio e serviços</strong>, sendo <strong>20 deles dedicados ao universo da tecnologia</strong>, unindo visão operacional, backoffice e comercial[cite: 5]. Atuando como <strong>Executivo de Contas sênior</strong>, especializei-me em condução de ciclos complexos de venda e na construção de parcerias corporativas estratégicas[cite: 5, 6].</p>
-                <p>Além disso, compartilho experiências como palestrante e professor nas áreas de administração, negócios, liderança e marketing pessoal[cite: 27, 46]. Gosto de construir pontes, trocar ideias e gerar valor por meio de boas conversas. A casa está aberta! Fique à vontade para se conectar.</p>
-                <p>Também atuo orgulhosamente no meu trabalho voluntário como <strong>Mentor do projeto "Jovens do Futuro" através do PAC (Amigos da Comunidade)</strong>, preparando novas gerações para os desafios reais do ambiente profissional[cite: 27, 55].</p>
+                <p>Boas-vindas ao meu perfil! Minha trajetória passa por <strong>mais de 35 anos na indústria, comércio e serviços</strong>, sendo <strong>20 deles dedicados ao universo da tecnologia</strong>, unindo visão operacional, backoffice e comercial. Atuando como <strong>Executivo de Contas sênior</strong>, especializei-me em condução de ciclos complexos de venda e na construção de parcerias corporativas estratégicas.</p>
+                <p>Minha sólida bagagem prática é chancelada pelo <strong>Bacharelado em Direito (UNIP)</strong>, que confere uma visão profunda de governança corporativa, cibersegurança e compliance regulatório aos projetos. Essa competência técnica e analítica é complementada pela formação como <strong>Técnico em Publicidade</strong>, proporcionando o equilíbrio exato entre o rigor institucional e a excelência estratégica na comunicação visual e presença digital B2B de alto padrão.</p>
+                <p>Além disso, compartilho experiências como palestrante e professor nas áreas de administração, negócios, liderança e marketing pessoal. Também atuo orgulhosamente no meu trabalho voluntário como <strong>Mentor do projeto "Jovens do Futuro" através do PAC (Amigos da Comunidade)</strong>, preparando novas gerações para os desafios reais do ambiente profissional.</p>
                 
                 <div class="highlights-grid">
                     <div class="stat-item">
@@ -463,11 +594,11 @@
                     </div>
                     <div class="stat-item">
                         <h4>20 Anos</h4>
-                        <p>Focados em tecnologia, ERPs complexos e inovação[cite: 5].</p>
+                        <p>Focados em tecnologia, ERPs complexos e inovação.</p>
                     </div>
                     <div class="stat-item">
-                        <h4>PAC</h4>
-                        <p>Mentoria estratégica ativa com impacto social de governança[cite: 27, 55].</p>
+                        <h4>Direito & Publicidade</h4>
+                        <p>O equilíbrio perfeito entre governança jurídica e comunicação estratégica.</p>
                     </div>
                 </div>
             </div>
@@ -476,13 +607,15 @@
 
     <section class="badges-section">
         <div class="section-title" style="margin-bottom: 30px;">
-            <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: #0071e3; font-weight: 600;">Especializações & Certificações</p>
+            <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--neon-blue); font-weight: 600; text-shadow: 0 0 5px var(--neon-blue);">Especializações, Chancelas & Formação</p>
         </div>
         <div class="badges-container">
-            <div class="badge-item">FGV (IA & Inovação) [cite: 50]</div>
-            <div class="badge-item">STF (IA Aplicada ao Direito) [cite: 50]</div>
-            <div class="badge-item">SENAI (Fundamentos de IA) [cite: 50]</div>
-            <div class="badge-item">UNIVERSIDADE TOTVS [cite: 53]</div>
+            <div class="badge-item">BACHAREL EM DIREITO (UNIP)</div>
+            <div class="badge-item">FGV (IA & Inovação)</div>
+            <div class="badge-item">STF (IA Aplicada ao Direito)</div>
+            <div class="badge-item">SENAI (Fundamentos de IA)</div>
+            <div class="badge-item">TÉCNICO EM PUBLICIDADE</div>
+            <div class="badge-item">UNIVERSIDADE TOTVS</div>
         </div>
     </section>
 
@@ -491,8 +624,8 @@
         <p>Entre em contato direto para estruturar um briefing dedicado e receber uma proposta comercial alinhada aos seus objetivos.</p>
         
         <div class="contact-details">
-            <div class="contact-info">✉️ marcelo.macedo.oliveira@gmail.com [cite: 3]</div>
-            <div class="contact-info">📞 (11) 9 7176-8080 [cite: 3]</div>
+            <div class="contact-info">✉️ marcelo.macedo.oliveira@gmail.com</div>
+            <div class="contact-info">📞 (11) 9 7176-8080</div>
         </div>
 
         <a href="https://wa.me/5511971768080" class="cta-button" target="_blank" style="background-color: transparent; border: 2px solid #0071e3; color: #0071e3; box-shadow: none;">Falar com Especialista</a>
@@ -501,6 +634,15 @@
     <footer>
         &copy; 2026 Macedo Palestras & Consultoria. Todos os direitos reservados. Atuação executiva sob demanda e projetos corporativos independentes.
     </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+        });
+    </script>
 
 </body>
 </html>
